@@ -6,6 +6,33 @@
     <title>mostre.online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes ctaPulse {
+            0% {
+                transform: translateY(0);
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.35);
+            }
+
+            50% {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px -10px rgba(22, 163, 74, 0.55);
+            }
+
+            100% {
+                transform: translateY(0);
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.35);
+            }
+        }
+
+        .cta-pulse {
+            animation: ctaPulse 2.4s ease-in-out infinite;
+        }
+    </style>
+
     <!-- Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -37,18 +64,22 @@
         </h1>
 
         <p class="mt-6 text-lg text-gray-600">
-            Um catálogo simples com link para compartilhar
-            e controlar o que ainda está disponível.<br />
+            Um catálogo simples com um link para compartilhar
+            e saber na hora o que ainda está disponível.<br />
             Sem loja, sem pagamento, sem complicação.
         </p>
 
-        <form class="mt-10 max-w-md mx-auto space-y-4 text-left">
+        <form id="hero-form" action="https://api.staticforms.dev/submit" method="POST"
+            class="mt-10 max-w-md mx-auto space-y-4 text-left">
 
+            <input type="hidden" name="apiKey" value="sf_28mfl702c6je8hhhgag13c43">
+            <input type="hidden" name="redirectTo" value="https://mostre.online/obrigado.html">
+            <input type="text" name="honeypot" style="display:none">
             <div>
                 <label class="block text-sm font-medium text-gray-700">
                     Seu e-mail ou WhatsApp (com DDD)
                 </label>
-                <input type="text" required placeholder="voce@email.com ou (99) 99999-9999"
+                <input type="text" name="telefone_email" required placeholder="voce@email.com ou (99) 99999-9999"
                     class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
             </div>
 
@@ -56,7 +87,7 @@
                 <label class="block text-sm font-medium text-gray-700">
                     Quantos produtos você costuma vender?
                 </label>
-                <select
+                <select name="quantidade_produtos"
                     class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
                     required>
                     <option value="">Selecione uma opção</option>
@@ -64,6 +95,24 @@
                     <option value="10-30">De 10 a 30 produtos</option>
                     <option value="mais-30">Mais de 30 produtos</option>
                 </select>
+            </div>
+
+            <!-- EXPECTATIVAS / NÃO PODE TER -->
+            <div class="mt-2">
+                <label class="block text-sm font-medium text-gray-700">
+                    Se quiser, conta pra gente:
+                </label>
+
+                <p class="mt-1 text-sm text-gray-500">
+                    O que você espera, o que não pode faltar
+                    ou o que <strong>não deve ter de jeito nenhum</strong>.
+                </p>
+
+                <textarea name="expectativas" rows="4" placeholder="Ex:
+            não quero nada complicado...
+            precisa ser rápido...
+            não quero parar de vender pelo WhatsApp..."
+                    class="mt-3 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
             </div>
 
             <button type="submit"
@@ -147,8 +196,7 @@
                     <h3 class="font-semibold mb-2">📦 Controle de estoque em 1 clique</h3>
                     <p class="text-gray-600">
                         Fechou a venda no WhatsApp?
-                        Entre no produto e aperte um botão.
-                        O estoque diminui na hora.
+                        Entre no produto, aperte um botão e o estoque diminui na hora.
                     </p>
                 </div>
 
@@ -167,7 +215,7 @@
     <section class="bg-gray-50 py-16">
         <div class="max-w-xl mx-auto px-6 text-center">
             <h2 class="text-2xl font-semibold">
-                Preço simples, pensado para quem vende pequeno
+                Preço direto, sem taxas escondidas
             </h2>
 
             <p class="mt-4 text-gray-600">
@@ -191,19 +239,14 @@
     <!-- CTA FINAL -->
     <section class="bg-gray-50 py-20">
         <div class="max-w-xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-semibold">
+            <h2 class="text-2xl font-semibold mb-6">
                 Quer ser avisado quando ficar pronto?
             </h2>
 
-            <form class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <input type="text" placeholder="Seu e-mail ou WhatsApp (com DDD)"
-                    class="w-full sm:w-72 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    required />
-                <button type="submit"
-                    class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
-                    Me avise quando ficar pronto
-                </button>
-            </form>
+            <a href="#hero-form"
+                class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition cta-pulse">
+                Me avise!
+            </a>
         </div>
     </section>
 
