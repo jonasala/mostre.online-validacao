@@ -79,66 +79,65 @@
             Sem loja, sem pagamento, sem complicação.
         </p>
 
-        <form id="hero-form" action="https://api.staticforms.dev/submit" method="POST"
-            class="mt-10 max-w-md mx-auto space-y-4 text-left">
-
+        <form action="https://api.staticforms.dev/submit" method="POST"
+            class="mt-10 max-w-md mx-auto space-y-6 text-center">
             <input type="hidden" name="apiKey" value="sf_28mfl702c6je8hhhgag13c43">
             <input type="hidden" name="redirectTo" value="https://mostre.online/obrigado.html">
             <input type="text" name="honeypot" style="display:none">
+            <!-- PERGUNTA PRINCIPAL -->
             <div>
-                <label class="block text-sm font-medium text-gray-700">
-                    Seu e-mail ou WhatsApp (com DDD)
-                </label>
-                <input type="text" name="telefone_email" required placeholder="voce@email.com ou (99) 99999-9999"
-                    class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700">
-                    Quantos produtos você costuma vender?
-                </label>
-                <select name="quantidade_produtos"
-                    class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                    required>
-                    <option value="">Selecione uma opção</option>
-                    <option value="ate-10">Até 10 produtos</option>
-                    <option value="10-30">De 10 a 30 produtos</option>
-                    <option value="mais-30">Mais de 30 produtos</option>
-                </select>
-            </div>
-
-            <!-- EXPECTATIVAS / NÃO PODE TER -->
-            <div class="mt-2">
-                <label class="block text-sm font-medium text-gray-700">
-                    Se quiser, conta pra gente:
-                </label>
+                <p class="text-base font-medium text-gray-800">
+                    Isso ajudaria você a organizar suas vendas no WhatsApp?
+                </p>
 
                 <p class="mt-1 text-sm text-gray-500">
-                    O que você espera, o que não pode faltar
-                    ou o que <strong>não deve ter de jeito nenhum</strong>.
+                    Resposta anônima · não é cadastro · não vira lista
                 </p>
+            </div>
+
+            <!-- BOTÕES DE VALIDAÇÃO -->
+            <div class="grid gap-3">
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'sim_usaria' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-green-50 hover:border-green-500 transition">
+                    👍 Sim, eu usaria
+                </button>
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'talvez' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-gray-50 transition">
+                    😐 Talvez / depende
+                </button>
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'nao_usaria' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-red-50 hover:border-red-400 transition">
+                    👎 Não usaria
+                </button>
+
+            </div>
+
+            <!-- MENSAGEM OPCIONAL -->
+            <div class="pt-4 border-t text-left">
+                <label class="block text-sm font-medium text-gray-700">
+                    Quer deixar um comentário? (opcional)
+                </label>
 
                 <textarea name="expectativas" rows="4" placeholder="Ex:
             não quero nada complicado...
             precisa ser rápido...
-            não quero parar de vender pelo WhatsApp..."
-                    class="mt-3 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            não quero parar de vender pelo WhatsApp..." rows="3"
+                    placeholder="O que ajudaria ou atrapalharia no seu dia a dia?"
+                    class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
             </div>
 
-            <button type="submit"
-                class="w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
-                Me avise quando ficar pronto
-            </button>
-
-            <p class="text-sm text-gray-500 text-center">
-                Preço planejado: R$ 14,90/mês · até 30 produtos
-            </p>
+            <!-- SUBMIT SECUNDÁRIO -->
+            <div class="pt-2">
+                <button type="submit" onclick="gtag('event', 'comment_submit')"
+                    class="text-sm text-gray-600 underline hover:text-gray-900">
+                    Enviar comentário
+                </button>
+            </div>
 
         </form>
-
-        <p class="mt-3 text-sm text-gray-500">
-            Sem spam. Só um aviso quando lançar.
-        </p>
     </section>
 
     <section class="py-12">
@@ -248,16 +247,65 @@
     </section>
     <!-- CTA FINAL -->
     <section class="bg-gray-50 py-20">
-        <div class="max-w-xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-semibold mb-6">
-                Quer ser avisado quando ficar pronto?
-            </h2>
+        <form action="https://api.staticforms.dev/submit" method="POST"
+            class="mt-10 max-w-md mx-auto space-y-6 text-center">
+            <input type="hidden" name="apiKey" value="sf_28mfl702c6je8hhhgag13c43">
+            <input type="hidden" name="redirectTo" value="https://mostre.online/obrigado.html">
+            <input type="text" name="honeypot" style="display:none">
+            <!-- PERGUNTA PRINCIPAL -->
+            <div>
+                <p class="text-base font-medium text-gray-800">
+                    Isso ajudaria você a organizar suas vendas no WhatsApp?
+                </p>
 
-            <a href="#hero-form"
-                class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition cta-pulse">
-                Me avise!
-            </a>
-        </div>
+                <p class="mt-1 text-sm text-gray-500">
+                    Resposta anônima · não é cadastro · não vira lista
+                </p>
+            </div>
+
+            <!-- BOTÕES DE VALIDAÇÃO -->
+            <div class="grid gap-3">
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'sim_usaria' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-green-50 hover:border-green-500 transition">
+                    👍 Sim, eu usaria
+                </button>
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'talvez' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-gray-50 transition">
+                    😐 Talvez / depende
+                </button>
+
+                <button type="button" onclick="gtag('event', 'validation_vote', { 'answer': 'nao_usaria' })"
+                    class="w-full px-4 py-3 border rounded-lg font-medium hover:bg-red-50 hover:border-red-400 transition">
+                    👎 Não usaria
+                </button>
+
+            </div>
+
+            <!-- MENSAGEM OPCIONAL -->
+            <div class="pt-4 border-t text-left">
+                <label class="block text-sm font-medium text-gray-700">
+                    Quer deixar um comentário? (opcional)
+                </label>
+
+                <textarea name="expectativas" rows="4" placeholder="Ex:
+                    não quero nada complicado...
+                    precisa ser rápido...
+                    não quero parar de vender pelo WhatsApp..." rows="3"
+                    placeholder="O que ajudaria ou atrapalharia no seu dia a dia?"
+                    class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            </div>
+
+            <!-- SUBMIT SECUNDÁRIO -->
+            <div class="pt-2">
+                <button type="submit" onclick="gtag('event', 'comment_submit')"
+                    class="text-sm text-gray-600 underline hover:text-gray-900">
+                    Enviar comentário
+                </button>
+            </div>
+
+        </form>
     </section>
 
     <!-- FOOTER -->
